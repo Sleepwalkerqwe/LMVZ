@@ -1,0 +1,260 @@
+body {
+    overflow: hidden;
+    display: grid;
+    text-align: center;
+    place-items: center;
+    color: #ffffff;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+    margin: 0;
+    padding: 0;
+    background-color: #05080f;
+}
+
+#popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #0f1829;
+    padding: 20px;
+    border: 1px solid black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+#closeButton {
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 25px;
+}
+
+.wrapper {
+    margin-top: 10px;
+    margin-bottom: 25px;
+    height: 100px;
+    width: 360px;
+    position: relative;
+
+    background: linear-gradient(135deg, #14ffe9, #ffeb3b, #ff00e0);
+    border-radius: 10px;
+    animation: animate 1.5s linear infinite;
+    cursor: default;
+}
+
+.wrapper .display,
+.wrapper span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+.wrapper .display {
+
+    z-index: 999;
+    height: 90px;
+    width: 350px;
+    background: #05080f;
+    border-radius: 6px;
+    text-align: center;
+
+}
+
+.display #time {
+
+    line-height: 90px;
+    color: #fff;
+    font-size: 50px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, #14ffe9, #ffeb3b, #ff00e0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animate 1.5s linear infinite;
+}
+
+@keyframes animate {
+    100% {
+        filter: hue-rotate(360deg)
+    }
+}
+
+.wrapper span {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    background: inherit;
+}
+
+.wrapper span:first-child {
+    filter: blur(7px)
+}
+
+.wrapper span:last-child {
+    filter: blur(20px)
+}
+
+
+
+:root,
+[data-theme=night] {
+    --bc: 229 7% 80%;
+    --b1: 222 47% 11%;
+    color-scheme: dark;
+}
+
+header {
+    color: white;
+
+    padding: 1em;
+}
+
+section {
+    margin: 10px 20px;
+    /* Изменен отступ между секциями */
+}
+
+p {
+    font-size: 20px !important;
+}
+
+h1 {
+    cursor: default;
+}
+
+h2 {
+    cursor: default;
+    font-size: 25px;
+}
+
+a {
+    font-size: 25px !important;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+
+.select-bordered {
+    --tw-border-opacity: 0.2;
+}
+
+.columns-2 {
+    margin-bottom: 30px;
+    column-count: 2;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.form-control {
+    display: flex;
+    flex-direction: column;
+}
+
+.select {
+
+    appearance: none;
+    background-image: linear-gradient(45deg, transparent 50%, currentColor 0), linear-gradient(135deg, currentColor 50%, transparent 0);
+    background-position: calc(100% - 20px) calc(1px + 50%), calc(100% - 16.1px) calc(1px + 50%);
+    background-repeat: no-repeat;
+    background-size: 4px 4px, 4px 4px;
+    border-color: hsl(var(--bc)/var(--tw-border-opacity));
+    border-radius: var(--rounded-btn, .5rem);
+    border-width: 1px;
+    cursor: pointer;
+    display: inline-flex;
+    font-size: .875rem;
+    height: 3rem;
+    line-height: 2;
+    min-height: 3rem;
+    background-color: #090e1a;
+    -webkit-print-color-adjust: exact;
+    --tw-shadow: 0 0 #0000;
+    padding: 0.5rem 0.75rem;
+    writing-mode: horizontal-tb !important;
+    text-indent: 0px;
+    text-shadow: none;
+    text-align: start;
+    align-items: center;
+    white-space-collapse: preserve;
+    text-wrap: nowrap;
+    -webkit-rtl-ordering: logical;
+    text-transform: none;
+    font-feature-settings: inherit;
+    color: inherit;
+    font-family: inherit;
+    font-variation-settings: inherit;
+    margin: 0;
+}
+
+/* Стиль для заднего фона */
+option {
+    background-color: #090e1a;
+}
+
+#hours-container::before,
+#minutes-container::before {
+    background-color: red;
+    color: red;
+    /* Цвет заднего фона */
+    z-index: -1;
+    /* Помещаем задний фон под контейнер с часами и минутами */
+    transition: background-color 0.3s;
+    /* Добавляем плавный переход цвета фона */
+}
+
+/* Изменение цвета фона при наведении */
+#hours-container:hover::before,
+#minutes-container:hover::before {
+    background-color: #c0c0c0;
+    /* Новый цвет заднего фона при наведении */
+}
+
+
+#alarmTime {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-family: sans-serif;
+    padding: 8px;
+    font-size: 25px;
+    border: 1px #ccc;
+    border-radius: 4px;
+}
+
+#alarmForm button {
+    margin-top: 10px;
+    display: block;
+    /* Каждый элемент будет отображаться на новой строке */
+    margin-bottom: 10px;
+    /* Отступ снизу для разделения элементов */
+}
+
+button {
+    margin-top: 20px;
+    padding: 25px;
+    background-color: #1c2332;
+    border: black;
+    border-radius: 10px;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    margin: 0 auto;
+    display: block;
+}
+
+button:hover {
+    background-color: #1a2c54;
+}
+
+#alarmStatus {
+
+    font-weight: bold;
+    color: #a5a3a3;
+}
